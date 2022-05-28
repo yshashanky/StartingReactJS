@@ -1,8 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const posts = sequelize.define("posts", { //define create table
-        title: {                              //define columns
-            type: DataTypes.STRING,           //define column properties
+    const posts = sequelize.define("posts", {   //define table
+        title: {                                //define columns
+            type: DataTypes.STRING,             //define column properties
             allowNull: false,
         },
         postText: {
