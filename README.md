@@ -46,3 +46,5 @@
     - npm start: to start react development server
     - Local: http://localhost:3000
     - On Your Network: http://192.168.1.37:3000
+    - npm install react-router-dom: to enable multiple routes in our app
+    - npm install formik: to validate forms

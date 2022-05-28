@@ -14,6 +14,12 @@ body {
   background-color: rgb(247, 182, 182);
 }
 
+.header {
+  text-align: center;
+  color: rgba(133, 3, 255, 0.634);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .post {
   width: 400px;
   height: 300px;
