@@ -14,7 +14,7 @@
 - Install and setup SQL Workbench and Server
 - We need two folder: client and server
 -----
-### Server folder Configurations
+### Server Configurations
 - open terminal in server folder
 - commands:
     - npm init: Initialize NodeJS API
@@ -36,3 +36,9 @@
     - for each table we need one file
 - update index.js to sync all the DB
 - update config.json inside cofig folder to connect with DB
+-----
+### Client Configurations
+- open terminal in server folder
+- commands:
+    - npx create-react-app . : create react application
+    - 
