@@ -41,4 +41,6 @@
 - open terminal in server folder
 - commands:
     - npx create-react-app . : create react application
-    - 
+    - npm start: to start react development server
+    - Local: http://localhost:3000
+    - On Your Network: http://192.168.1.37:3000
