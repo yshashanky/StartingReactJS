@@ -87,7 +87,7 @@ body {
   width: 500px;
   height: auto;
   padding: 20px;
-  border: 5px solid rgb(82, 15, 169);;
+  border: 5px solid rgb(82, 15, 169);
   border-radius: 5px;
 }
 
@@ -99,7 +99,7 @@ body {
   border-radius: 5px;
   padding-left: 10px;
   font-size: 20px;
-  background-color: rgb(247, 190, 190);
+  background-color: rgb(209, 232, 252);
 }
 
 .formContainer button {
@@ -180,12 +180,13 @@ button {
 }
 
 .addCommentContainer button {
-  background-color: dodgerblue;
+  background-color: rgb(146, 75, 238);
   color: white;
 }
 
 .addCommentContainer input {
-  border: 2px solid dodgerblue;
+  border: 2px solid rgb(146, 75, 238);
+  background-color: rgb(222, 235, 247);
 }
 
 .rightSide .listOfComments {
@@ -200,9 +201,10 @@ button {
   width: 70%;
   height: auto;
   padding: 30px;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(146, 75, 238);
   border-radius: 5px;
   margin-top: 20px;
+  background-color: rgb(182, 218, 250);
 }
 
 #individual {
