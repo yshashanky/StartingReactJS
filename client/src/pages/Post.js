@@ -14,9 +14,16 @@ function Post() {
     }, []);
 
     return (
-        <div>
-            {userPosts.postText}
+        <div className="postPage">
+        <div className="leftSide">
+        <div className="post" id="individual">
+          <div className="title"> {userPosts.title} </div>
+          <div className="body">{userPosts.postText}</div>
+          <div className="footer">{userPosts.username}</div>
         </div>
+      </div>
+      <div className="rightSide">Comment Section</div>
+    </div>
     )
 }
 
