@@ -29,6 +29,7 @@
     - sequelize init: initialize sequelize
         - several folders will be created, remove seeders and migrations folder
     - npm install cors: use to allow react to accept request coming from same origin
+    - npm install bcrypt: to has password
 -----
 ### Database Configurations
 - Create schema in DB, name = tutoraildb
