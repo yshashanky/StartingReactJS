@@ -23,6 +23,8 @@ function CreatePost() {
   };
 
   return (
+    <div>
+    <h1 className='header'> Create Post </h1>
     <div className="createPostPage">
       <Formik
         initialValues={initialValues}
@@ -58,6 +60,7 @@ function CreatePost() {
           <button type="submit"> Create Post</button>
         </Form>
       </Formik>
+      </div>
     </div>
   );
 }
