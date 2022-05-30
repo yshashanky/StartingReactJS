@@ -59,11 +59,12 @@ function Post() {
           <input
             type="text"
             placeholder="Comment..."
+            
             value={newComment}
             onChange={(event) => {
               setNewComment(event.target.value);
             }}
-          />
+            required/>
           <button onClick={addComment}> Add Comment</button>
         </div>
         <div className="listOfComments">
@@ -71,6 +72,7 @@ function Post() {
             return (
               <div key={key} className="comment">
                 {comment.commentBody}
+                <label> @{comment.username} </label>
               </div>
             );
           })}
