@@ -38,7 +38,8 @@ function Post() {
           if (response.data.error) {
             alert(response.data.error)
           } else{
-            const commentToAdd = { commentBody: newComment };
+            const commentToAdd = { commentBody: newComment, 
+                                  username: response.data.username };
             setComments([...comments, commentToAdd]);
             setNewComment("");
           }
