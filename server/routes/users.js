@@ -33,8 +33,8 @@ router.post('/login', async (req, res) => {
     })
 });
 
-router.get('/verify', validateToken, (res, req) => {
-    res.send(req.user)
+router.get('/verify', validateToken, (req, res) => {
+    res.json(req.user)
 });
 
 module.exports = router 
