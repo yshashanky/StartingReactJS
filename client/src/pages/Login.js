@@ -13,7 +13,7 @@ function Login() {
     axios.post("http://localhost:3001/auth/login", data).then((response) => {
       if (response.data.error) {alert (response.data.error);}
       else {
-        sessionStorage.setItem("accessToken", response.data);
+        localStorage.setItem("accessToken", response.data);
         navigate("/");
       }
     });
