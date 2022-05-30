@@ -7,16 +7,26 @@ import Registration from './pages/Registartion';
 import Login from './pages/Login';
 import { AuthContext } from './helpers/AuthContext'
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 function App() {
 
   const [authState, setAuthState] = useState(false);
 
   useEffect (() => {
-    if (localStorage.getItem("accessToken")){
-      setAuthState(true)
-    }
-  })
+    axios.get('http://localhost:3001/auth/verify', {
+      headers: {
+        accessToken: localStorage.getItem('accessToken')
+      }
+    })
+    .then((response) => {
+      if(response.data.error) {
+        setAuthState(false);
+      } else {
+        setAuthState(true);
+      }
+    })
+  });
 
   return (
     <div className="App">
