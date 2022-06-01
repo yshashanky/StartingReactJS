@@ -40,10 +40,13 @@ function Post() {
           if (response.data.error) {
             alert(response.data.error)
           } else{
-            const commentToAdd = { commentBody: newComment, 
-                                  username: response.data.username };
-            setComments([...comments, commentToAdd]);
-            setNewComment("");
+            // const commentToAdd = { commentBody: newComment, 
+            //                       username: response.data.username };
+            // setComments([...comments, commentToAdd]);
+            // setNewComment("");
+            axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+              setComments(response.data);
+            })
           }
         });
     };
