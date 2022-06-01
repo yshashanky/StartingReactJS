@@ -14,14 +14,16 @@ router.post('/', validateToken, async (req, res) => {
     const username = req.user.username;
     userComment.username = username;
     await comments.create(userComment);
-    res.json(userComment);
+    res.json(userComment); 
 });
 
 router.delete('/:commentId', validateToken, async (req, res) => {
     const commentId = req.params.commentId;
-    comments.destroy({where: {
-        id: commentId
-    }})
+    comments.destroy({
+        where: {
+            id: commentId
+        }
+    });
 });
 
-module.exports = router 
+module.exports = router;
