@@ -49,13 +49,15 @@ function Post() {
     };
 
     const deleteComment = (id) => {
-      axios.delete(`http://localhost:3001/comments/${id}`,
+      axios.delete(`http://localhost:3001/comments/delete/${id}`,
       {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         }
       }).then(()=>{
-        // alert("token DELETED")
+        setComments(comments.filter((val) => {
+          return val.id != id;
+        }))
       })
     }
 
@@ -85,7 +87,7 @@ function Post() {
           {comments.map((comment, key) => {
             return (
               <div key={key} className="comment">
-                {comment.commentBody} {comment.id}
+                {comment.commentBody}
                 <label> @{comment.username} </label>
                 { authState.username === comment.username && (
                   <button onClick={() => deleteComment(comment.id)}> X </button>
