@@ -28,6 +28,11 @@ function App() {
     })
   });
 
+  const logout = () => {
+    localStorage.removeItem("accessToken");
+    setAuthState(false);
+  }
+
   return (
     <div className="App">
       <AuthContext.Provider value={{authState, setAuthState}}>
@@ -42,7 +47,7 @@ function App() {
             </>
           ) : (
             <>
-              <Link to="/"> Logout </Link>
+              <Link onClick={logout} to="/"> Logout </Link>
             </>
           )}
         </div>
