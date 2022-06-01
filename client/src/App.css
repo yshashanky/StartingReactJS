@@ -1,5 +1,5 @@
 .App {
-  width: 100%;
+  width: device-width;
   height: auto;
   display: flex;
   align-items: center;
@@ -135,6 +135,15 @@ span {
   margin-left: 20px;
   text-decoration: none;
   color: white;
+}
+
+.navbar h1 {
+  margin-left: 20px;
+  font-size: 21px;
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* INDIVIDUAL POST */
