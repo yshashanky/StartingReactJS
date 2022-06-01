@@ -11,7 +11,11 @@ import axios from 'axios';
 
 function App() {
 
-  const [authState, setAuthState] = useState(false);
+  const [authState, setAuthState] = useState({
+    username: "",
+    id: 0,
+    loggedin: false,
+  });
 
   useEffect (() => {
     axios.get('http://localhost:3001/auth/verify', {
@@ -21,16 +25,24 @@ function App() {
     })
     .then((response) => {
       if(response.data.error) {
-        setAuthState(false);
+        setAuthState({...authState, loggedin: false});
       } else {
-        setAuthState(true);
+        setAuthState({
+          username: response.data.username,
+          id: response.data.id,
+          loggedin: true,
+        });
       }
     })
   });
 
   const logout = () => {
     localStorage.removeItem("accessToken");
-    setAuthState(false);
+    setAuthState({
+      username: "",
+      id: 0,
+      loggedin: false,
+    });
   }
 
   return (
@@ -40,7 +52,7 @@ function App() {
       <div className="navbar">
           <Link to="/"> Home Page</Link>
           <Link to="/createpost"> Create A Post</Link>
-          {!authState ? (
+          {!authState.loggedin ? (
             <>
               <Link to="/login"> Login </Link>
               <Link to="/registration"> Registration </Link>
@@ -48,6 +60,7 @@ function App() {
           ) : (
             <>
               <Link onClick={logout} to="/"> Logout </Link>
+              <h1> {authState.username} </h1>
             </>
           )}
         </div>
