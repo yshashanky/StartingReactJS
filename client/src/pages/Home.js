@@ -14,16 +14,30 @@ function Home() {
         })
     }, []);
 
+    const likeApost = (postId) => {
+        axios.post("http://localhost:3001/likes", 
+        { postId: postId},
+        { headers: {accessToken: localStorage.getItem("accessToken")
+            }.then((response) => {
+                alert(response.data)
+            })
+        })
+    }
+
     return (
         <div>
             <h1 className='header'> Posts </h1>
             {listOfPosts.map((value, key) => {
             return (
             <div>
-                <div className="post" onClick={() => {navigate(`/post/byId/${value.id}`)}}>
+                <div className="post">
                     <div className="title"> {value.title} </div>
-                    <div className="body">{value.postText}</div>
-                    <div className="footer">{value.username}</div>
+                    <div className="body" onClick={() => {navigate(`/post/byId/${value.id}`)}}>{value.postText}</div>
+                    <div className="footer">
+                        {value.username} 
+                        <button onClick={() => {
+                            likeApost(value.id);}}> Like </button>
+                    </div>
                 </div>
             </div>
             );
