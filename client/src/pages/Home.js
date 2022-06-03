@@ -19,7 +19,20 @@ function Home() {
         { PostId: postId},
         { headers: {accessToken: localStorage.getItem("accessToken")} }
         ).then((response) => {
-                alert(response.data)
+                setListOfPosts(listOfPosts.map((post) => {
+                    if (post.id === postId){
+                        if (response.data.liked) {
+                            return {...post, likes: [...post.likes, 0]};
+                        } else {
+                            const likeArray = post.likes;
+                            likeArray.pop();
+                            return {...post, likes: likeArray}
+                        }
+                    }
+                    else {
+                        return post;
+                    }
+                }))
         })
     }
 

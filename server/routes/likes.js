@@ -4,7 +4,7 @@ const router = express.Router();
 const { likes } = require('../models');
 
 router.post("/", validateToken, async (req, res) => {
-    const { PostId} = req.body;
+    const { PostId } = req.body;
     const UserId = req.user.id;
 
     const found = await likes.findOne({ 
@@ -13,7 +13,7 @@ router.post("/", validateToken, async (req, res) => {
 
     if (!found) {
         await likes.create({ postId: PostId, userId: UserId });
-        res.json("Liked the post");
+        res.json({liked: true});
     } else {
         await likes.destroy({
             where: {
@@ -21,7 +21,7 @@ router.post("/", validateToken, async (req, res) => {
                 userId: UserId,  
             }
         })
-        res.send("Unliked the post");
+        res.send({liked: false});
     } 
 }); 
 
