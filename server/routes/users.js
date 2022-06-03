@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/verify', validateToken, (req, res) => {
-    res.json(req.user)
+    res.json(req.user);
 });
 
 module.exports = router 
