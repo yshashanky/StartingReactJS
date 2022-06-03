@@ -16,11 +16,10 @@ function Home() {
 
     const likeApost = (postId) => {
         axios.post("http://localhost:3001/likes", 
-        { postId: postId},
-        { headers: {accessToken: localStorage.getItem("accessToken")
-            }.then((response) => {
+        { PostId: postId},
+        { headers: {accessToken: localStorage.getItem("accessToken")} }
+        ).then((response) => {
                 alert(response.data)
-            })
         })
     }
 
@@ -42,7 +41,7 @@ function Home() {
             </div>
             );
             })}
-        </div>
+        </div> 
     )
 }
 

@@ -17,12 +17,12 @@ router.post("/", validateToken, async (req, res) => {
     } else {
         await likes.destroy({
             where: {
-                postId: PostId, 
-                userId: UserId,
+                postId: PostId,
+                userId: UserId,  
             }
         })
         res.send("Unliked the post");
-    }
-});
+    } 
+}); 
 
 module.exports = router;
