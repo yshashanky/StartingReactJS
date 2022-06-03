@@ -49,7 +49,7 @@ function Home() {
                         {value.username} 
                         <button onClick={() => {
                             likeApost(value.id);}}> Like </button>
-                        <label> {value.likes.length} </label>
+                        {value.likes.length !=0 && <label> {value.likes.length} </label>}
                     </div>
                 </div>
             </div>
