@@ -33,8 +33,10 @@ function Home() {
         { PostId: postId},
         { headers: {accessToken: localStorage.getItem("accessToken")} }
         ).then((response) => {
+            if (response.data.error){
+                navigate('/login');
+            } else {
                 setListOfPosts(listOfPosts.map((post) => {
-
                     if (likedPost.includes(postId)) {
                         setLikedPost(likedPost.filter((id) => {
                             return id !== postId;
@@ -43,7 +45,6 @@ function Home() {
                     else{
                         setLikedPost([...likedPost, postId]);
                     }
-
                     if (post.id === postId){
                         if (response.data.liked) {
                             return {...post, likes: [...post.likes, 0]};
@@ -57,6 +58,7 @@ function Home() {
                         return post;
                     }
                 }))
+            }
         })
     }
 
