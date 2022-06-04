@@ -23,7 +23,7 @@ function Home() {
         axios.get("http://localhost:3001/likes",
         { headers: {accessToken: localStorage.getItem("accessToken")} })
         .then((response) => {
-            setLikedPost(response.data.map((like) => {return like.postId;}));
+            setLikedPost(response.data.map((likes) => {return likes.postId;}));
         })
         .catch(error => {
             console.log("user not logged in");
@@ -70,11 +70,13 @@ function Home() {
             {listOfPosts.map((value, key) => {
             return (
             <div>
-                <div className="post">
+                <div key={key} className="post">
                     <div className="title"> {value.title} </div>
                     <div className="body" onClick={() => {navigate(`/post/byId/${value.id}`)}}>{value.postText}</div>
                     <div className="footer">
-                        <div className='username'>{value.username} </div>
+                        <div className='username' onClick={() => {navigate(`/profile/${value.userId}`)}}>
+                                {value.username}
+                        </div>
                         <div className='buttons'>
                         <FavoriteIcon onClick={() => {
                             likeApost(value.id);}} className={likedPost.includes(value.id) ? "likeBttn" : "unlikeBttn" } />

@@ -14,9 +14,19 @@ router.get('/byId/:id', async (req, res) => {
     res.json(post)
 }); 
 
+router.get('/byUserId/:id', async (req, res) => {
+    const id = req.params.id;
+    const listOfPosts = await posts.findAll({include: [likes],
+        where: {
+        userId: id
+    }});
+    res.json(listOfPosts)
+}); 
+
 router.post('/', validateToken, async (req, res) => {
     const post = req.body;
     post.username = req.user.username;
+    post.userId = req.user.id;
     await posts.create(post);
     res.json(post);
 });

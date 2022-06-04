@@ -5,6 +5,7 @@ import CreatePost from './pages/CreatePost';
 import Post from './pages/Post';
 import Registration from './pages/Registartion';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 import PageNotFound from './pages/PageNotFound';
 import { AuthContext } from './helpers/AuthContext'
 import { useEffect, useState } from "react";
@@ -64,7 +65,7 @@ function App() {
             <>
               <Link to="/createpost"> Create A Post</Link>
               <Link onClick={logout} to="/"> Logout </Link>
-              <h1> {authState.username} </h1>
+              <Link to={(`/profile/${authState.id}`)}> <h1> {authState.username} </h1> </Link>
             </>
           )}
         </div>
@@ -74,7 +75,8 @@ function App() {
           <Route path='/post/byId/:id' element={<Post/>} />
           <Route path="/registration" element={<Registration/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path='*' element={<PageNotFound/>}/>
+          <Route path='/profile/:id' element={<Profile/>} />
+          <Route path='*' element={<PageNotFound/>} />
         </Routes>
       {/* </Router> */}
       </AuthContext.Provider>
