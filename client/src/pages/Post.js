@@ -46,7 +46,7 @@ function Post() {
             // setNewComment("");
             axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
               setComments(response.data);
-            })
+            });
           }
         });
     };
