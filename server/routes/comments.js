@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { comments } = require('../models')
-const { validateToken } = require('../middlewares/AuthMiddleware')
+const { validateToken } = require('../middlewares/AuthMiddleware');
 
 router.get('/:postId', async (req, res) => {
     const postId = req.params.postId;
@@ -27,4 +27,5 @@ router.delete('/delete/:commentId', validateToken, async (req, res) => {
     });
     res.json("deleted successfully");
 });
+
 module.exports = router;

@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import Home from './pages/Home';
 import CreatePost from './pages/CreatePost';
 import Post from './pages/Post';
@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 
 function App() {
+
+  let navigate = useNavigate();
 
   const [authState, setAuthState] = useState({
     username: "",
@@ -39,6 +41,7 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem("accessToken");
+    navigate('/');
     setAuthState({
       username: "",
       id: 0,
@@ -49,10 +52,9 @@ function App() {
   return (
     <div className="App">
       <AuthContext.Provider value={{authState, setAuthState}}>
-      <Router>
+      {/* <Router> */}
       <div className="navbar">
           <Link to="/"> Home Page</Link>
-          <Link to="/createpost"> Create A Post</Link>
           {!authState.loggedin ? (
             <>
               <Link to="/login"> Login </Link>
@@ -60,6 +62,7 @@ function App() {
             </>
           ) : (
             <>
+              <Link to="/createpost"> Create A Post</Link>
               <Link onClick={logout} to="/"> Logout </Link>
               <h1> {authState.username} </h1>
             </>
@@ -73,7 +76,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='*' element={<PageNotFound/>}/>
         </Routes>
-      </Router>
+      {/* </Router> */}
       </AuthContext.Provider>
     </div>
   );

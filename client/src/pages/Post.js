@@ -2,10 +2,12 @@ import React, {useEffect, useState, useContext} from 'react'
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from "../helpers/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Post() {
 
     let {id} = useParams(); 
+    let navigate = useNavigate();
     const [userPosts, setUserPosts] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
@@ -38,7 +40,7 @@ function Post() {
           )
         .then((response) => {
           if (response.data.error) {
-            alert(response.data.error)
+            navigate('/login');
           } else{
             // const commentToAdd = { commentBody: newComment, 
             //                       username: response.data.username };
