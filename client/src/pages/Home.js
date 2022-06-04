@@ -2,6 +2,8 @@ import React from 'react';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function Home() {
 
@@ -46,10 +48,12 @@ function Home() {
                     <div className="title"> {value.title} </div>
                     <div className="body" onClick={() => {navigate(`/post/byId/${value.id}`)}}>{value.postText}</div>
                     <div className="footer">
-                        {value.username} 
-                        <button onClick={() => {
-                            likeApost(value.id);}}> Like </button>
-                        {value.likes.length !=0 && <label> {value.likes.length} </label>}
+                        <div className='username'>{value.username} </div>
+                        <div className='buttons'>
+                        <FavoriteIcon onClick={() => {
+                            likeApost(value.id);}} className="likeButtn" />
+                        {value.likes.length !== 0 && <label> {value.likes.length} </label>}
+                        </div>
                     </div>
                 </div>
             </div>

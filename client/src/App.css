@@ -59,7 +59,6 @@ body {
 
 .post .footer {
   flex: 20%;
-  /* border-top: 1px solid lightgray; */
   display: flex;
   align-items: center;
   padding-left: 15px;
@@ -69,6 +68,29 @@ body {
   border-bottom-right-radius: 10px;
 }
 
+.footer .username {
+  flex: 50%;
+}
+
+.footer .buttons {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.likeBttn {
+  color: rgba(255, 0, 0, 0.8);
+}
+
+.unlikeBttn {
+  color: rgb(255, 255, 255);
+}
+
+.buttons label {
+  margin-right: 20px;
+  margin-left: 10px;
+}
 /* CREATE POST PAGE CSS */
 
 .createPostPage {

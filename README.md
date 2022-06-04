@@ -51,3 +51,5 @@
     - npm install react-router-dom: to enable multiple routes in our app
     - npm install formik: to create forms
     - npm install yup: to validate forms
+    - npm install @mui/material @emotion/react @emotion/styled
+    - npm install @mui/icons-material
