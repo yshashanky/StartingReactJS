@@ -33,11 +33,14 @@ function Home() {
         ).then((response) => {
                 setListOfPosts(listOfPosts.map((post) => {
 
-                    axios.get("http://localhost:3001/likes",
-                        { headers: {accessToken: localStorage.getItem("accessToken")} })
-                        .then((response) => {
-                        setLikedPost(response.data.map((like) => {return like.postId}));
-                    });
+                    if (likedPost.includes(postId)) {
+                        setLikedPost(likedPost.filter((id) => {
+                            return id !== postId;
+                        }));
+                    }
+                    else{
+                        setLikedPost([...likedPost, postId]);
+                    }
 
                     if (post.id === postId){
                         if (response.data.liked) {
@@ -69,7 +72,9 @@ function Home() {
                         <div className='buttons'>
                         <FavoriteIcon onClick={() => {
                             likeApost(value.id);}} className={likedPost.includes(value.id) ? "likeBttn" : "unlikeBttn" } />
-                        {value.likes.length !== 0 && <label> {value.likes.length} </label>}
+                        {value.likes.length !== 0 ?
+                            <label> {value.likes.length} </label> :
+                            <label className="zero"> {value.likes.length} </label>}
                         </div>
                     </div>
                 </div>
