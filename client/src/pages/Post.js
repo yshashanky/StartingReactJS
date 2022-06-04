@@ -25,6 +25,9 @@ function Post() {
 
 
   const addComment = () => {
+    if (newComment === ""){
+      alert("Add a Comment")
+    }else{
       axios
         .post(
           "http://localhost:3001/comments", 
@@ -36,8 +39,7 @@ function Post() {
             headers: {
               accessToken: localStorage.getItem("accessToken"),
             },
-          }
-          )
+          })
         .then((response) => {
           if (response.data.error) {
             navigate('/login');
@@ -51,6 +53,7 @@ function Post() {
             });
           }
         });
+      }
     };
 
     const deleteComment = (id) => {
@@ -61,7 +64,7 @@ function Post() {
         }
       }).then(()=>{
         setComments(comments.filter((val) => {
-          return val.id != id;
+          return val.id !== id;
         }))
       })
     }
