@@ -11,10 +11,9 @@ function Home() {
     let navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3001/posts",
-        { headers: {accessToken: localStorage.getItem("accessToken")} })
+        axios.get("http://localhost:3001/posts")
         .then((response) => {
-            setListOfPosts(response.data.listOfPosts);
+            setListOfPosts(response.data);
         })
     }, []);
 
@@ -22,8 +21,11 @@ function Home() {
         axios.get("http://localhost:3001/likes",
         { headers: {accessToken: localStorage.getItem("accessToken")} })
         .then((response) => {
-            setLikedPost(response.data.map((like) => {return like.postId}));
-        });
+            setLikedPost(response.data.map((like) => {return like.postId;}));
+        })
+        .catch(error => {
+            console.log("user not logged in");
+        })
     }, []);
 
     const likeApost = (postId) => {
@@ -77,7 +79,7 @@ function Home() {
                             <label className="zero"> {value.likes.length} </label>}
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
             );
             })}
