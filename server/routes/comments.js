@@ -28,4 +28,14 @@ router.delete('/delete/:commentId', validateToken, async (req, res) => {
     res.json("deleted successfully");
 });
 
+router.delete('/deleteall/:postId', validateToken, async (req, res) => {
+    const postId = req.params.postId;
+    await comments.destroy({
+        where: {
+            postId: postId
+        }
+    });
+    res.json("deleted successfully");
+});
+
 module.exports = router;

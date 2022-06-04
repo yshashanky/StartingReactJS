@@ -72,10 +72,16 @@ function Post() {
         headers: {
           accessToken: localStorage.getItem("accessToken"),
         }
-      }).then(() => {
+      }).then((id) => {
         navigate('/');
-      })
-    }
+        axios.delete(`http://localhost:3001/posts/deleteall/${id}`,
+        {
+          headers: {
+            accessToken: localStorage.getItem("accessToken"),
+          }
+        });
+      });
+    };
 
     return (
         <div className="postPage">
