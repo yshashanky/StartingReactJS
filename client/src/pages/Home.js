@@ -13,7 +13,9 @@ function Home() {
     useEffect(() => {
         axios.get("http://localhost:3001/posts")
         .then((response) => {
-            setListOfPosts(response.data);
+            const responseData = [...response.data]
+            responseData.reverse();
+            setListOfPosts(responseData);
         })
     }, []);
 
