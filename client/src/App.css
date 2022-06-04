@@ -94,7 +94,9 @@ body {
 
 .zero {
   color: transparent;
+  visibility:hidden
 }
+
 /* CREATE POST PAGE CSS */
 
 .createPostPage {

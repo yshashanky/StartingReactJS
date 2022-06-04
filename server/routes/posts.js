@@ -16,9 +16,19 @@ router.get('/byId/:id', async (req, res) => {
 
 router.post('/', validateToken, async (req, res) => {
     const post = req.body;
-    const username = req.user.username;
+    post.username = req.user.username;
     await posts.create(post);
     res.json(post);
+});
+
+router.delete('/delete/:postId', validateToken, async(req, res) => {
+    const postId = req.params.postId;
+    await posts.destroy({
+        where: {
+            id: postId,
+        }
+    });
+    res.json("deleted successfully");
 });
 
 module.exports = router;
