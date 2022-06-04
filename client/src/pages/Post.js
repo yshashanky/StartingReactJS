@@ -100,7 +100,6 @@ function Post() {
           <input
             type="text"
             placeholder="Comment..."
-            
             value={newComment}
             onChange={(event) => {
               setNewComment(event.target.value);
