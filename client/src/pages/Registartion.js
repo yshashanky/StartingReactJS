@@ -22,11 +22,12 @@ function Registration() {
 
   return (
     <div>
+      <h1 className='headerRegistration'> Please Register </h1>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
-      >
+       >
         <Form className="formContainer">
           <label>Username: </label>
           <ErrorMessage name="username" component="span" />

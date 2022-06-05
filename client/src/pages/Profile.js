@@ -79,8 +79,8 @@ function Profile() {
 
     return (
         <div className='profilePageContainer'>
-            <div className='basicInfo'>
-                <h1> Username: {username} </h1>
+            <div className='header'>
+                <h1> User: {username} </h1>
             </div>
             <div className='listOfPosts'>
                 {listOfPosts.map((value, key) => {
