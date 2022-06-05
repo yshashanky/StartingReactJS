@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
             password: hash
         })
         res.json("User created");
-    })
+    });
 });
 
 router.post('/login', async (req, res) => {
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
             "importantsecret");
 
         return res.send({token: accessToken, username: username, id: user.id});
-    })
+    });
 });
 
 router.get('/verify', validateToken, (req, res) => {
@@ -43,6 +43,27 @@ router.get('/basicinfo/:id', async(req, res) => {
         exclude: ["password"]
     }});
     res.json(basicInfo);
+}); 
+
+router.put('/changepassword', validateToken, async(req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    const user = await users.findOne({where: { username: req.user.username }});
+
+    bcrypt.compare(oldPassword, user.password).then(async(match) => {
+        if(!match) return res.send({ error: "Wrong Password!!!" });
+
+        bcrypt.hash(newPassword, 10).then((hash) => {
+            users.update(
+                {password: hash},
+                {where:{
+                    username: req.user.username
+                }});
+        
+            res.json("Update Password");
+        });
+
+    });
+
 });
 
-module.exports = router 
+module.exports = router ;
