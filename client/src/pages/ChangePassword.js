@@ -16,21 +16,32 @@ function ChangePassword() {
             if (response.data.error){
                 alert(response.data.error);
             }else{
-                alert("Password Updated!")
+                alert("Password Updated!!")
             }
         });
     };
 
     return (
-        <div className='changePassword'>
-            <h1 className='header'> Change your Password </h1>
-            <input type="password" placeholder='Old Password...' 
-                onChange={(event) => {setOldPassword(event.target.value)}} />
-            <input type="password" placeholder='New Password...'
-                onChange={(event) => {setNewPassword(event.target.value)}} />
-            <button onClick={changePasswords}> Update Password </button>
+        <div className="changepassword">
+          <h1 className='header'> Change your Password </h1>
+          <label>Old Password:</label>
+          <input
+            type="text"
+            onChange={(event) => {
+              setOldPassword(event.target.value);
+            }}
+          />
+          <label> New Password:</label>
+          <input
+            type="password"
+            onChange={(event) => {
+              setNewPassword(event.target.value);
+            }}
+          />
+    
+          <button onClick={changePasswords}> Change Password </button>
         </div>
-    )
+    );
 };
 
 export default ChangePassword;

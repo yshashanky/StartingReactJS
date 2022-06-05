@@ -24,6 +24,7 @@ function Login() {
   
   return (
     <div className="loginContainer">
+      <h1 className='header'> User Login </h1>
       <label>Username:</label>
       <input
         type="text"
