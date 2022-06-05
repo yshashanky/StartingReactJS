@@ -199,6 +199,24 @@ a {
   font-weight: bold;
 }
 
+.header button{
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: rgb(206, 198, 198);
+  font-weight: bold;
+}
+
+.changePassword button{
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  background-color: rgb(206, 198, 198);
+  font-weight: bold;
+}
+
 .navbar h1 {
   margin-left: 20px;
   /* font-size: 21px; */

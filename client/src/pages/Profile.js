@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { AuthContext } from "../helpers/AuthContext";
 
 function Profile() {
 
     let { id } = useParams();
     let navigate = useNavigate();
+    const { authState } = useContext(AuthContext);
     const [username, setUsername] = useState("");
     const [listOfPosts, setListOfPosts] = useState([]);
     const [likedPost, setLikedPost] = useState([]);
@@ -81,6 +83,8 @@ function Profile() {
         <div className='profilePageContainer'>
             <div className='header'>
                 <h1> User: {username} </h1>
+                {authState.username === username && 
+                    <button onClick={() => {navigate("/changePassword")}}> Change my Password! </button>}
             </div>
             <div className='listOfPosts'>
                 {listOfPosts.map((value, key) => {
