@@ -16,7 +16,7 @@ body {
 
 .header {
   text-align: center;
-  margin-bottom: 0px;
+  margin-bottom: 29px;
   margin-top: 20px;
   color: rgba(133, 3, 255, 0.634);
   font-family: Arial, Helvetica, sans-serif;
@@ -26,12 +26,12 @@ body {
   text-align: center;
   margin-bottom: 29px;
   margin-top: 20px;
-  color: rgba(133, 3, 255, 0.634);
+  color: rgba(136, 85, 184, 0.634);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .post {
-  width: 400px;
+  width: 300px;
   height: 300px;
   border-radius: 10px;
   display: flex;
@@ -107,7 +107,7 @@ body {
 
 /* CREATE POST PAGE CSS */
 
-.createPostPage {
+/* .createPostPage {
   font-family: Arial, Helvetica, sans-serif;
   width: 100vw;
   height: 70vh;
@@ -115,13 +115,13 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: -90px !important;
-}
+} */
 
 .formContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 500px;
+  /* width: 500px; */
   height: auto;
   padding: 20px;
   border: 5px solid rgb(82, 15, 169);

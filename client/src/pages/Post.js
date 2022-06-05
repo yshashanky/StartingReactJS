@@ -86,12 +86,18 @@ function Post() {
       });
     };
 
+    const editPost = (option) => {
+      if (option === "title"){
+      }else{
+      }
+    }
+
     return (
         <div className="postPage">
         <div className="leftSide">
         <div className="post" id="individual">
-          <div className="title"> {userPosts.title} </div>
-          <div className="body">{userPosts.postText}</div>
+          <div className="title" onClick={() => {editPost("title")}}> {userPosts.title} </div>
+          <div className="body" onClick={() => {editPost("body")}}>{userPosts.postText}</div>
           <div className="footer">{userPosts.username}
             {authState.username === userPosts.username 
             && <button onClick={() => deletePost(userPosts.id)}> Delete Post </button>}
