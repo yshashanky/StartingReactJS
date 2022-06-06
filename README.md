@@ -53,3 +53,7 @@
     - npm install yup: to validate forms
     - npm install @mui/material @emotion/react @emotion/styled
     - npm install @mui/icons-material
+-----
+### Deploy the Application
+- heroku for backend
+- netlify for UI
