@@ -25,7 +25,6 @@ function Profile() {
             const responseData = [...response.data]
             responseData.reverse();
             setListOfPosts(responseData);
-            console.log(responseData)
         });
 
     },[]);
@@ -35,8 +34,6 @@ function Profile() {
         { headers: {accessToken: localStorage.getItem("accessToken")} })
         .then((response) => {
             setLikedPost(response.data.map((like) => {return like.postId}));
-            console.log(response.data.length)
-            console.log(response.data.map((like) => {return like.postId}))
         })
         .catch(error => {
             console.log("user not logged in");

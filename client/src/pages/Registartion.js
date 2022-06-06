@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
+
+  const [allUsers, setAllUsers] = useState([]);
+  let navigate = useNavigate();
+
   const initialValues = {
     username: "",
     password: "",
   };
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/auth/allusers")
+    .then((response) => {
+      setAllUsers(response.data.map((user) => {return user.username}));
+    });
+  },[]);
 
   const validationSchema = Yup.object().shape({
     username: Yup.string().min(3).max(15).required(),
@@ -15,9 +27,14 @@ function Registration() {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/auth", data).then(() => {
-      console.log(data);
-    });
+    if (allUsers.indexOf(data.username) > -1){
+      alert("Username already exists!!");
+    }else{
+      axios.post("http://localhost:3001/auth", data).then(() => {
+        console.log("Success!!");
+        navigate("/");
+      });
+    }
   };
 
   return (

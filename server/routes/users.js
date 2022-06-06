@@ -15,6 +15,13 @@ router.post('/', async (req, res) => {
         })
         res.json("User created");
     });
+}); 
+
+router.get('/allusers', async (req, res) => {
+    const listOfUsers = await users.findAll({attributes: {
+        exclude: ["password", "id", "createdAt", "updatedAt"]
+    }});
+    res.json(listOfUsers);
 });
 
 router.post('/login', async (req, res) => {
