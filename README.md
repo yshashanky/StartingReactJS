@@ -57,3 +57,5 @@
 ### Deploy the Application
 - heroku for backend
 - netlify for UI
+
+### Completed the project as of now
