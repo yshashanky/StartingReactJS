@@ -34,7 +34,7 @@
 -----
 ### Database Configurations
 - Create schema in DB, name = tutoraildb
-- create posts.js file inside models folder
+- create different js files for different DBs file inside models folder
     - it will use to create post table in our DB
     - for each table we need one file
 - update index.js to sync all the DB
@@ -57,3 +57,5 @@
 ### Deploy the Application
 - heroku for backend
 - netlify for UI
+
+### Completed the project as of now
