@@ -47,6 +47,7 @@
     - npm start: to start react development server
     - Local: http://localhost:3000
     - On Your Network: http://192.168.1.37:3000
+    - rfce + Enter: creates basic structure of React in empty file
     - npm install react-router-dom: to enable multiple routes in our app
     - npm install formik: to create forms
     - npm install yup: to validate forms
