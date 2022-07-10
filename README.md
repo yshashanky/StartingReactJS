@@ -9,7 +9,6 @@
 - SequilizeJS
 -----
 ### Setup
-- Tutorial series: https://www.youtube.com/playlist?list=PLpPqplz6dKxUaZ630TY1BFIo5nP-_x-nL
 - Install NodeJS
 - Install and setup SQL Workbench and Server
 - We need two folder: client and server
