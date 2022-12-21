@@ -1,4 +1,4 @@
-## Learning ReactJS
+## ReactJS
 ### Full stack application using ReactJS
 -----
 ### Technologies
